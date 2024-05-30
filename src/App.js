@@ -6,7 +6,7 @@ function App(){
     <div className="App">
       <h2 className="primary">Style type 1 in React js</h2>
       <h2 style={{color:"red", backgroundColor:"black"}}>Style type 2 in React js</h2>
-      <h2 className={style.sucess}>Style type 3 in React js demo</h2>
+      <h2 className={style.sucess}>Style type 3 in React js dem</h2>
     </div>
   )
 }
