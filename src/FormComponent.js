@@ -1,47 +1,38 @@
+import { useState } from "react";
 
 
+const FormComponent = ()=>{
 
-import React, { useState } from 'react';
+  // define state
 
-const FormComponent = () => {
-  const [formData, setFormData] = useState([
-    { id: 1, name: 'input1', value: '' },
-    { id: 2, name: 'input2', value: '' },
-    { id: 3, name: 'input3', value: '' }
-  ]);
+  const [todoinput, setTodoInput] = useState([]);
+  console.log("todoinput",todoinput);
 
-  const handleChange = (event, id) => {
-    const updatedFormData = formData.map(item => {
-      if (item.id === id) {
-        return { ...item, value: event.target.value };
+  const addTodo = (event)=>{
+      if(todoinput !==""){
+        setTodoInput(event.target.value)
+        setTodoInput("");
+      }else{
+        console.log("input box empty");
+        
       }
-      return item;
-    });
-    setFormData(updatedFormData);
-  };
+      
+  }
 
-  const handleSubmit = (event) => {
-    event.preventDefault();
-    console.log(formData);
-    // Here you can handle form submission logic
-  };
 
-  return (
-    <form onSubmit={handleSubmit}>
-      {formData.map(item => (
-        <input
-          key={item.id}
-          type="text"
-          name={item.name}
-          value={item.value}
-          onChange={(event) => handleChange(event, item.id)}
-          placeholder={`Enter ${item.name}`}
-        />
-      ))}
-      <button type="submit">Submit</button>
-    </form>
-  );
-};
 
+
+  return(
+    <div>
+      <h4>Todo App</h4>
+      <h5>Enter Name : {todoinput}</h5>
+      <input 
+      type="text"
+      placeholder="Enter value"
+      onChange={(event)=> setTodoInput(event.target.value)}
+      />
+      <button onClick={addTodo}>Add Todo</button>
+    </div>
+  )
+}
 export default FormComponent;
-
