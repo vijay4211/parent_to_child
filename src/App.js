@@ -1,6 +1,5 @@
 import "./App.css";
 import "./Style.css";
-import style from "./custome.module.css";
 
 function App(){
   return(
@@ -13,5 +12,4 @@ function App(){
 }
 export default App;
 
-//style 1st bracket use jsx
-//style 2nd bracke use css style
+
