@@ -1,15 +1,33 @@
 import "./App.css";
-import "./Style.css";
 
-function App(){
-  return(
+function App() {
+  
+ const students = [
+  {name:"anil", email:"anil@gmail.com", contact:12356 }, //row-1
+  {name:"siddhu", email:"siddhu@gmail.com", contact:111222 },  //row-2
+  {name:"peter", email:"peter@gmail.com", contact:3333 } //row-3
+ ] 
+ 
+
+  return (
     <div className="App">
-      <h2 className="primary">Style type 1 in React js</h2>
-      <h2 style={{color:"red", backgroundColor:"black"}}>Style type 2 in React js</h2>
-      <h2 className={style.sucess}>Style type 3 in React js dem</h2>
+      <table border={1}>
+        <tr>
+        <td>Name</td>
+          <td>Email</td>
+          <td>Contact</td>
+        </tr>
+      {
+        students.map((data)=>(
+          <tr>
+          <td>{data.name}</td>
+          <td>{data.email}</td>
+          <td>{data.contact}</td>
+        </tr>
+        ))
+      }
+      </table>
     </div>
-  )
+  );
 }
 export default App;
-
-
