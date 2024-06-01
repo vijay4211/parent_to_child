@@ -1,20 +1,19 @@
-import { Table } from "react-bootstrap";
 import "./App.css";
 import "bootstrap/dist/css/bootstrap.min.css";
-import Col from "./Col";
 function App() {
-
+  //function
+  function test() {
+    console.log("test function");
+  }
+  test();
 
   return (
     <div className="App">
-      <h4>React Fragment</h4>
-        <Table>
-          <tbody>
-            <tr>
-               <Col />
-            </tr>
-          </tbody>
-        </Table>
+      <h4>Reuse Component With List</h4>
+      <User />
+      <User />
+      <User />
+      <User />
     </div>
   );
 }
