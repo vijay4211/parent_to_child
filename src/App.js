@@ -1,85 +1,30 @@
 import "./App.css";
-import Table from "react-bootstrap/Table";
-
 import "bootstrap/dist/css/bootstrap.min.css";
+
+import User from "./User";
 
 function App() {
   const users = [
-    {
-      name: "anil",
-      email: "anil@gmail.com",
-      address: [
-        { Hn: "10", city: "Noida", country: "India" },
-        { Hn: "12", city: "Pune", country: "Dubai" },
-        { Hn: "13", city: "Mumbai", country: "Canada" },
-        { Hn: "14", city: "Kolhapur", country: "America" },
-      ],
-    },
-    {
-      name: "siddhu",
-      email: "siddhu@gmail.com",
-      address: [
-        { Hn: "10", city: "Noida", country: "India" },
-        { Hn: "12", city: "Pune", country: "Dubai" },
-        { Hn: "13", city: "Mumbai", country: "Canada" },
-        { Hn: "14", city: "Kolhapur", country: "America" },
-      ],
-    },
-    {
-      name: "peter",
-      email: "peter@gmail.com",
-      address: [
-        { Hn: "10", city: "Noida", country: "India" },
-        { Hn: "12", city: "Pune", country: "Dubai" },
-        { Hn: "13", city: "Mumbai", country: "Canada" },
-        { Hn: "14", city: "Kolhapur", country: "America" },
-      ],
-    },
+    { name: "Anil", email: "anil@gmail.com", contact: "111"},
+    { name: "Bruce", email: "bruce@gmail.com", contact: "222"},
+    { name: "Peter", email: "peter@gmail.com", contact: "333"},
+    { name: "Sam", email: "sam@gmail.com", contact: "444"},
   ];
+
+  function handler(){
+    alert("Hello");
+  }
 
   return (
     <div className="App">
-      <h4>ist With Nested Array</h4>
-        <Table variant="dark" striped>
-            <thead>
-                <tr>
-                   <td>S.No</td>
-                   <td>Name</td>
-                   <td>Email</td>
-                   <td>Address</td>
-                </tr>
-            </thead>
-            <tbody>
-              {
-                 users.map(
-                  (item, index)=>(
-                    <tr key={index}>
-                    <td>{index+1}</td>
-                    <td>{item.name}</td>
-                    <td>{item.email}</td>
-                    <td>
-                    <Table variant="dark" striped>
-                      <tbody>
-                      {
-                         item.address.map(
-                          (data, index)=>(
-                             <tr key={index}>
-                               <td>{data.Hn}</td>
-                               <td>{data.city}</td>
-                               <td>{data.country}</td>
-                             </tr>
-                          )
-                         )
-                      }
-                      </tbody>
-                    </Table>
-                    </td>
-                 </tr>
-                  )
-                 )
-              }
-            </tbody>
-        </Table>
+      <h4>Reuse Component With List</h4>
+      {
+        users.map(
+          (item, index)=>(
+              <User username={item.name} useremail={item.email} usercontact={item.contact} functionhandler={handler}/>
+          )
+        )
+      }
     </div>
   );
 }

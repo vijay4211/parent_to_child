@@ -1,15 +1,22 @@
-import React, { useEffect } from "react";
+import React from "react";
 
 function User(props) {
-  //define useEffect
-  useEffect(() => {
-    console.log("useEffect called");
-  }, [props.usercount, props.userdata]); //useEffect called on "count" And useEffect called on 'data'
-
+  const styling = {
+    background : "skyblue",
+    marginTop:"40px"
+  }
+  const NameStyle = {
+    background : "pink"
+  }
+  const ButtonSytle = {
+    padding:"5px 10px 10px 5px"
+  }
   return (
-    <div className="App">
-      <h4>Count Props : {props.usercount}</h4>
-      <h4>Data Props : {props.userdata}</h4>
+    <div className="App" style={styling}>
+      <h4 style={NameStyle}>Name : {props.username} </h4>
+      <h4>Email : {props.useremail} </h4>
+      <h4>Contact : {props.usercontact}</h4>
+      <button onClick={()=> props.functionhandler()} style={ButtonSytle}>Click</button>
     </div>
   );
 }
