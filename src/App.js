@@ -2,19 +2,16 @@ import "./App.css";
 import "bootstrap/dist/css/bootstrap.min.css";
 import User from "./User";
 function App() {
-  //function
-  function test() {
-    console.log("test function");
+  
+  function parentAlert(DataComeFromChild){  //data as DataComeFromChild
+     console.log(DataComeFromChild);
+     alert(DataComeFromChild.name);
   }
-  test();
 
   return (
     <div className="App">
-      <h4>Reuse Component With List</h4>
-      <User />
-      <User />
-      <User />
-      <User />
+      <h4>======Lifting State Up===========</h4>
+      <User alert={parentAlert} />
     </div>
   );
 }
