@@ -1,18 +1,23 @@
+import { Component } from "react";
 import "./App.css";
 import "bootstrap/dist/css/bootstrap.min.css";
-import User from "./User";
-function App() {
-  
-  function parentAlert(DataComeFromChild){  //data as DataComeFromChild
-     console.log(DataComeFromChild);
-     alert(DataComeFromChild.name);
+
+class App extends Component{
+
+  constructor(){ //constructor method
+    super();
+    this.state = { //state object
+        
+    }
+  }
+  render(){
+    return (
+      <div className="App">
+        <h4>======Pure Component===========</h4>
+        
+      </div>
+    );
   }
 
-  return (
-    <div className="App">
-      <h4>======Lifting State Up===========</h4>
-      <User alert={parentAlert} />
-    </div>
-  );
 }
 export default App;
