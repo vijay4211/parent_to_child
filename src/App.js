@@ -14,7 +14,7 @@ class App extends Component{
     return (
       <div className="App">
         <h4>======Pure Component===========</h4>
-        
+          
       </div>
     );
   }
