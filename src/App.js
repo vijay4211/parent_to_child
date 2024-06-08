@@ -1,18 +1,26 @@
+import { PureComponent } from "react";
 import "./App.css";
 import "bootstrap/dist/css/bootstrap.min.css";
 import User from "./User";
-function App() {
-  
-  function parentAlert(DataComeFromChild){  //data as DataComeFromChild
-     console.log(DataComeFromChild);
-     alert(DataComeFromChild.name);
+class App extends PureComponent {
+  //define constructor method
+  constructor() {
+    super();
+    //define state
+    this.state = {
+      count: 1,
+    };
   }
 
-  return (
-    <div className="App">
-      <h4>======Lifting State Up===========</h4>
-      <User alert={parentAlert} />
-    </div>
-  );
+  render() {
+    return (
+      <div className="App">
+        <User NumberCount={this.state.count} />
+        <button onClick={() => this.setState({ count: this.state.count + 1 })}>
+          Update Count
+        </button>
+      </div>
+    );
+  }
 }
 export default App;
