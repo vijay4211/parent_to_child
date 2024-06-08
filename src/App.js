@@ -1,35 +1,24 @@
-import { Component, createRef } from "react";
 import "./App.css";
 import "bootstrap/dist/css/bootstrap.min.css";
+import User from "./User";
+import { useRef } from "react";
 
-class App extends Component {
-
-  //define constructor
-  constructor(){
-    super();
-    this.inputRef = createRef();
-  }
-  componentDidMount(){
-    // console.log(this.inputRef.current.value="1000");
-
-  }
+function App() {
+  //define variable
+  let inputRef = useRef(null);
 
   //define function
-  getVal(){
-    console.log(this.inputRef.current.value);
-    this.inputRef.current.style.color = "red";
-    this.inputRef.current.style.backgroundColor = "black";
+  function updateINput() {
+    inputRef.current.value = "1000";
+    inputRef.current.style.color ="red";
+    inputRef.current.focus();
   }
 
-  render() {
-    //method
-    return (
-      <div>
-        
-        <input type="text" ref={this.inputRef}/>
-        <button onClick={()=> this.getVal()}>Check Ref</button>
-      </div>
-    );
-  }
+  return (
+    <div className="App">
+      <User ref={inputRef}/>
+      <button onClick={updateINput}>Update InputBox</button>
+    </div>
+  );
 }
 export default App;
