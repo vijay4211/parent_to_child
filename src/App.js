@@ -1,32 +1,35 @@
-import { useState, useMemo } from "react";
+import { Component, createRef } from "react";
 import "./App.css";
 import "bootstrap/dist/css/bootstrap.min.css";
 
-function App() {
-  //define state
-  const [count, setCount] = useState(0);
-  const [item, setItem] = useState(10);
+class App extends Component {
 
-//useMomo use callback function
-const multiCountMemo = useMemo(
-   //define function
-   function multiCount(){
-    console.log("Multi count");
-    return count * 5;
-  }, [count]
+  //define constructor
+  constructor(){
+    super();
+    this.inputRef = createRef();
+  }
+  componentDidMount(){
+    // console.log(this.inputRef.current.value="1000");
 
-)
+  }
 
-console.log("Render App Component");
+  //define function
+  getVal(){
+    console.log(this.inputRef.current.value);
+    this.inputRef.current.style.color = "red";
+    this.inputRef.current.style.backgroundColor = "black";
+  }
 
-  return (
-    <div>
-      <h4>Count : {count}</h4>
-      <h4>Item : {item}</h4>
-      <h4>{multiCountMemo}</h4>
-      <button onClick={() => setCount(count + 1)}>Update Count</button>
-      <button onClick={() => setItem(item * 10)}>Update Item</button>
-    </div>
-  );
+  render() {
+    //method
+    return (
+      <div>
+        
+        <input type="text" ref={this.inputRef}/>
+        <button onClick={()=> this.getVal()}>Check Ref</button>
+      </div>
+    );
+  }
 }
 export default App;
