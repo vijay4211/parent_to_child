@@ -8,6 +8,8 @@ function Nav() {
       <br />
       <Link to="/about">About Page</Link>
       <br />
+      <Link to="/login">Login Page</Link>
+      <br />
     </div>
   );
 }
