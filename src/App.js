@@ -1,23 +1,19 @@
+import { useState } from "react";
 import "./App.css";
 import "bootstrap/dist/css/bootstrap.min.css";
-import User from "./User";
-import { useRef } from "react";
-
 function App() {
-  //define variable
-  let inputRef = useRef(null);
-
-  //define function
-  function updateINput() {
-    inputRef.current.value = "1000";
-    inputRef.current.style.color ="red";
-    inputRef.current.focus();
-  }
+  //define state
+  const [val, setVal] = useState("0"); //0 is default value
 
   return (
     <div className="App">
-      <User ref={inputRef}/>
-      <button onClick={updateINput}>Update InputBox</button>
+      <h4>Controlled Component</h4>
+      <h5>Value : {val}</h5>
+      <input
+        type="text"
+        value={val}
+        onChange={(event) => setVal(event.target.value)}
+      />
     </div>
   );
 }
