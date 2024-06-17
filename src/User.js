@@ -1,10 +1,11 @@
-import { forwardRef } from "react";
+import{withRoute} from "react-router-dom";
 
-function User(props, ref) {
+function User(props) {
+  console.log(props);
   return (
-    <div className="App">
-      <input type="text" ref={ref} />
+    <div>
+        <h4>User Component</h4>
     </div>
   );
 }
-export default forwardRef(User);
+export default withRoute(User);
