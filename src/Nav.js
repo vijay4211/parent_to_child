@@ -17,6 +17,9 @@ function Nav() {
         <li>
           <NavLink  to={"/filter"} style={({isActive})=>{return{color: isActive ? "skyblue" :""}}} className={"nav_bar_link"}>Filter</NavLink>
         </li>
+        <li>
+          <NavLink  to={"/login"} style={({isActive})=>{return{color: isActive ? "skyblue" :""}}} className={"nav_bar_link"}>Login</NavLink>
+        </li>
       </ul>
     </div>
   );

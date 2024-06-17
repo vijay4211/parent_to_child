@@ -11,6 +11,8 @@ import Contact from "./component/Contact";
 import Company from "./component/Company";
 import Channel from "./component/Channel";
 import Other from "./component/Other";
+import Login from "./component/Login";
+import Protected from "./component/Protected";
 
 function App() {
   return (
@@ -18,11 +20,12 @@ function App() {
       <BrowserRouter>
         <Nav />
         <Routes>
-          <Route path="/" element={<Home />} />
-          <Route path="/about" element={<About />} />
+          <Route path="/" element={<Protected Component={Home}/>}/>
+          <Route path="/login" element={<Login />} />
+          <Route path="/about" element={<Protected Component={About}/>} />
           <Route path="/user/:name" element={<User />} />
           <Route path="*" element={<Page404 />} />
-          <Route path="/filter" element={<Filter />} />
+          <Route path="/filter" element={<Protected Component={Filter} />} />
           <Route path="/contact/" element={<Contact />}>
               <Route path="company" element={<Company />}/>
               <Route path="channel" element={<Channel />}/>
