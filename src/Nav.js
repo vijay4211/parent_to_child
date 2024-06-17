@@ -6,13 +6,13 @@ function Nav() {
     <div  className="navbar">
       <ul>
         <li>
-          <NavLink className={"nav_bar_link"} style={{color:"red"}} to={"/"}>Home</NavLink>
+          <NavLink to={"/"} style={({isActive})=>{return{color: isActive ? "skyblue" :""}}} className={"nav_bar_link"}>Home</NavLink>
         </li>
         <li>
-          <NavLink className={"nav_bar_link"} to={"/about"}>About</NavLink>
+          <NavLink  to={"/about"} style={({isActive})=>{return{color: isActive ? "skyblue" :""}}} className={"nav_bar_link"}>About</NavLink>
         </li>
         <li>
-          <NavLink className={"nav_bar_link"} to={"/"}>Contact</NavLink>
+          <NavLink  to={"/contact"} style={({isActive})=>{return{color: isActive ? "skyblue" :""}}} className={"nav_bar_link"}>Contact</NavLink>
         </li>
       </ul>
     </div>
