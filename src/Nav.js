@@ -1,18 +1,18 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 
 function Nav() {
   return (
-    <div>
+    <div  className="navbar">
       <ul>
         <li>
-          <Link to={"/"}>Home</Link>
+          <NavLink className={"nav_bar_link"} style={{color:"red"}} to={"/"}>Home</NavLink>
         </li>
         <li>
-          <Link to={"/about"}>About</Link>
+          <NavLink className={"nav_bar_link"} to={"/about"}>About</NavLink>
         </li>
         <li>
-          <Link to={"/"}>Contact</Link>
+          <NavLink className={"nav_bar_link"} to={"/"}>Contact</NavLink>
         </li>
       </ul>
     </div>
